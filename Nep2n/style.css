@@ -1,0 +1,1227 @@
+:root {
+    --bg-color: #242933;
+    --sub-color: #617b94;
+    --sub-alt-color: #1b1f27;
+    --text-color: #d8dee9;
+    --error-color: #bf616a;
+    
+    --b: #1b577770;
+    --r: #85101070;
+    --r-alt: #BF616A;
+    --g: #A3BE8C;
+    --g-alt: #5cb85c;
+
+    --font: "Roboto Mono", monospace;
+}
+
+body{
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    overflow-x: hidden;
+}
+
+#viewpage{
+    width: 100vw;
+    height: 100vh;
+
+    display:grid;
+    grid-template-columns: repeat(4, 25vw);
+    grid-template-rows: repeat(4, 25vh);
+
+    margin: 0;
+    border: 0;
+    padding: 0;
+
+    background-color: var(--bg-color);
+    
+}
+
+.subpage{
+    width: 100vw;
+    height: 100vh;
+
+    display:grid;
+    grid-template-columns: repeat(4, 25vw);
+    grid-template-rows: repeat(4, 25vh);
+
+    z-index:1;
+    position:absolute;
+
+    overflow-y:scroll;
+    overflow-x: hidden;
+    color: var(--text-color);
+
+    grid-row: 1/5;
+    grid-column: 1/5;
+}
+
+#nav{
+    background-color: rgba(1, 1, 1, 0.6);
+    z-index: 10
+}
+
+#nav-bar{
+    grid-row: 1/5;
+    grid-column: 1/2;
+    margin: 2vh;
+    width: 75px;
+
+    display:flex;
+    flex-direction: column;
+    
+    z-index: 5;
+
+    background-color: var(--sub-alt-color);
+    border-radius: 0.5rem;
+
+    transform: translateX(0) translateY(0);
+
+}
+
+#nav-bar > .nav-container{
+    width: 75px;
+    
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+
+    display:flex;
+    flex-direction: column;
+
+    transition: all ease-in-out 0.2s;
+}
+
+#nav-bar > .nav-container:hover{
+    transform: translateX(-1px) translateY(-1px);
+
+}
+
+#nav-bar > .nav-container > img{
+    width: 48px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    filter: invert(50%) sepia(12%) saturate(921%) hue-rotate(168deg) brightness(90%) contrast(92%);
+
+    user-select: none;
+}
+
+#nav-bar > .nav-container > img:hover{
+    cursor: pointer;
+}
+
+#nav-bar > .nav-container > .nav-label{
+    color: var(--sub-color);
+    margin-left: auto;
+    margin-right: auto;
+
+    text-align: center;
+    font-family: "Roboto Mono", monospace;
+    font-size: 0.9rem;
+
+    user-select: none;
+} 
+
+#nav-bar > .nav-container > .nav-label:hover{
+    cursor: pointer;
+}
+
+#nav-bar > .last{
+    position: absolute;
+
+    bottom: 3vh;
+}
+
+#nav > #nav-search{
+    grid-column: 2/4;
+    grid-row: 1/2;
+
+    margin-top: 5vh;
+    height: 10vh;
+
+    outline: none;
+
+    background-color: var(--sub-alt-color);
+    border-radius: 0.75rem;
+    border: 2px solid var(--sub-alt-color);
+    color: var(--text-color);
+    font-size: 1.5rem;
+    padding-left: 1rem;
+    font-family: "Roboto mono", monospace;
+
+    transition: 0.2s ease-in-out;
+
+    transform: translateY(0);
+}
+
+#nav > #nav-search:focus{
+    border: 2px solid var(--sub-color);
+}
+
+.hideNavBar{
+    animation: hideNavBar;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+}
+
+.showNavBar{
+    animation: hideNavBar;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+    animation-direction: reverse;
+}
+
+@keyframes hideNavBar {
+    0%{
+        transform: translateX(0px);
+    }
+    40%{
+        transform: translateX(1vw);
+    }
+    100%{
+        transform: translateX(-10vw);
+    }
+}
+
+.hideNavSearch{
+    animation: hideSearch;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+}
+
+.showNavSearch{
+    animation: hideSearch;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+    animation-direction: reverse;
+}
+
+@keyframes hideSearch {
+    0%{
+        transform: translateY(0px);
+    }
+    40%{
+        transform: translateY(1vw);
+    }
+    100%{
+        transform: translateY(-10vw);
+    }
+}
+
+#robotImage{
+    width: 20vw;
+    height: 40vh;
+    object-fit: contain;
+}
+
+/* Home page */
+
+
+#viewpage > #home thead tr {
+    position: sticky;
+    top: 0px;
+    background-color: var(--bg-color);
+    overflow: auto;
+    font-family: "Roboto mono", monospace;
+}
+
+#viewpage > #home {
+    width: 100%;
+    display: block;
+}
+
+#viewpage > #home table {
+    text-align: center;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.9rem;
+    width: 100%;
+}
+
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+  
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    -webkit-animation-name: fadeIn; /* Fade in the background */
+    -webkit-animation-duration: 0.2s;
+    animation-name: fadeIn;
+    animation-duration: 0.2s
+}
+
+/* Modal Content */
+.modal-content {
+    font-family: "Roboto mono", monospace;
+    position: fixed;
+    bottom: 0;
+    background-color: var(--bg-color);
+    width: 100%;
+    -webkit-animation-name: slideIn;
+    -webkit-animation-duration: 0.2s;
+    animation-name: slideIn;
+    animation-duration: 0.2s
+}
+
+/* The Close Button */
+.close {
+color: var(--text-color);
+float: right;
+font-size: 28px;
+font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+color: #000;
+text-decoration: none;
+cursor: pointer;
+}
+
+.modal-header {
+padding: 2px 16px;
+background-color: #5cb85c;
+color: var(--text-color);
+}
+
+.modal-body {padding: 2px 16px;}
+
+/* Add Animation */
+@-webkit-keyframes slideIn {
+from {bottom: -300px; opacity: 0} 
+to {bottom: 0; opacity: 1}
+}
+
+@keyframes slideIn {
+from {bottom: -300px; opacity: 0}
+to {bottom: 0; opacity: 1}
+}
+
+@-webkit-keyframes fadeIn {
+from {opacity: 0} 
+to {opacity: 1}
+}
+
+@keyframes fadeIn {
+from {opacity: 0} 
+to {opacity: 1}
+}
+
+#table-container {
+    grid-row: 1/6;
+    grid-column: 1/6;
+}
+#table-qata-container {
+    grid-row: 1/6;
+    grid-column: 1/6;
+}
+#table-qata-container table td {
+    overflow-x:scroll;
+    overflow:auto;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+#table-qata-container table tr td:nth-child(-n+4) {
+    width: 3%;
+}
+#table-qata-container table tr td:nth-child(n+4) {
+    width: 10%;
+}
+#table-qata-container table tr td:nth-child(n+5) {
+    width: 15%;
+}
+#table-qata-container table tr td:nth-child(n+7) {
+    width: 25%;
+}
+
+
+/* Search page */
+#viewpage > #search{
+    background-color: var(--bg-color);
+    grid-template-columns: repeat(10, 10vw); 
+    /* ^ above line is iffy, pls change later */
+    grid-template-rows: repeat(10, 10vh);
+    height: 100vh;
+    width: 100vw;
+    overflow:hidden;
+
+    border-radius: 0.45rem;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+
+#search > div.default{
+    grid-row: 2/4;
+    grid-column: 3/9;
+
+    margin-top: auto;
+    margin-bottom: auto;    
+    width: 60vw;
+    height: 10vh;
+
+    display:flex;
+}
+
+#search > div.active{
+    grid-row: 1/2;
+    grid-column: 6/11;
+    margin: 1vh;
+    margin-right: 5vw;
+
+    display:flex;
+}
+
+#search > .barContainer > input {
+
+    width: 100%;
+    height: 100%;
+
+    outline: none;
+
+    background-color: var(--sub-alt-color);
+    border-radius: 0.75rem;
+    border: 2px solid var(--sub-alt-color);
+    color: var(--text-color);
+    font-size: 1.5rem;
+    padding-left: 1rem;
+    font-family: "Roboto mono", monospace;
+
+    transition: 0.2s ease-in-out;
+
+    transform: translateY(0);
+}
+
+#search > .barContainer > input:focus{
+    border: 2px solid var(--sub-color);
+}
+
+#search > .barContainer > input::placeholder{
+    color: var(--sub-color);
+}
+
+#search > .barContainer > #search-button{
+    margin: auto;
+    margin-right: 2vw;
+    grid-row: 1/2;
+    grid-column: 6/7;
+
+    z-index: 10;
+
+    filter: invert(50%) sepia(12%) saturate(921%) hue-rotate(168deg) brightness(90%) contrast(92%);
+}
+
+#viewpage > #search thead tr {
+    position: sticky;
+    top: 0px;
+    background-color: var(--bg-color);
+    overflow: auto;
+    font-family: "Roboto mono", monospace;
+}
+
+#viewpage > #search {
+    width: 100%;
+}
+
+#viewpage > #search table {
+    text-align: center;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.9rem;
+    width: 100%;
+}
+
+
+
+#imgContainer{
+    grid-row: 1/3;
+    grid-column:1/3;
+    font-size: 2rem;
+    color: lightcoral;
+}
+
+#miscData{
+    grid-row: 6/8;
+    grid-column: 1/3;
+    font-family: var(--font);
+}
+
+#miscData{
+    grid-row: 6/8;
+    grid-column: 1/3;
+    font-family: var(--font);
+}
+
+#miscData table tr {
+    color: rgb(201, 195, 246);
+    background-color: #5f5f5f;
+    border-bottom: 1px solid #dddddd;
+    text-align: center;
+}
+
+#pitsData{
+    grid-row: 5;
+    grid-column: 1/3;
+    font-family: var(--font);
+    margin-left: 1.5vw;
+}
+
+#pitsData table tr {
+    margin: auto 0;
+    color: rgb(201, 195, 246);
+    background-color: #5f5f5f;
+    border-bottom: 1px solid #dddddd;
+    text-align: center;
+}
+
+#chartContainer{
+
+    width: 20vw;
+    height: 20vh
+}
+
+#dataContainer{
+    font-family: var(--font);
+    text-align: center;
+    grid-row: 2/7;
+    grid-column: 3/11;
+    overflow-y:scroll;
+}
+#dataContainer table {
+    width:100%;
+}
+#dataContainer table tr {
+    color: rgb(201, 195, 246);
+    background-color: #5f5f5f;
+    border-bottom: 1px solid #dddddd;
+}
+#dataContainer table tr:nth-of-type(even) {
+    background-color: #504f4f;
+}
+#qataContainer{
+    text-align: center;
+    grid-row: 7/11;
+    grid-column: 3/11;
+    overflow-y:scroll;
+}
+#qataContainer table{
+    width:100%;
+    overflow-y: scroll;
+    font-family: var(--font);
+}
+#qataContainer table thead tr th{
+    height:auto;
+}
+#qataContainer table tr td:nth-child(n+3) {
+    width: 15%;
+}
+#qataContainer table tr td:nth-child(n+4) {
+    width: 1%;
+}
+#qataContainer table tr td:nth-child(n+9) {
+    width: 15%;
+}
+#qataContainer table thead tr th:last-of-type{
+    height:auto;
+    width:100%;
+}
+#qataContainer table tr {
+    color: rgb(201, 195, 246);
+    background-color: #5f5f5f;
+    border-bottom: 1px solid #dddddd;
+}
+#qataContainer table tr:nth-of-type(even) {
+    background-color: #504f4f;
+}
+
+
+
+/* COMPARE */
+#viewpage > #compare{
+    background-color: var(--bg-color);
+    grid-template-columns: repeat(30, 3vw); 
+    /* ^ above line is iffy, pls change later */
+    grid-template-rows: repeat(20, 8vh);
+    height: 95vh;
+    margin: 2.5vh;
+    width: 100vw;
+    overflow:hidden;
+
+    border-radius: 0.45rem;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+
+#compare > div.default{
+    grid-row: 2/4;
+    grid-column: 3/9;
+
+    margin-top: auto;
+    margin-bottom: auto;    
+    width: 60vw;
+    height: 10vh;
+
+    display:flex;
+}
+
+#compare > div.active{
+    grid-row: 1/2;
+    grid-column: 1/15;
+    margin: 1vh;
+    margin-right: 5vw;
+
+    display:flex;
+}
+
+#compare > .c-barContainer > input {
+
+    width: 100%;
+    height: 100%;
+
+    outline: none;
+
+    background-color: var(--sub-alt-color);
+    border-radius: 0.75rem;
+    border: 2px solid var(--sub-alt-color);
+    color: var(--text-color);
+    font-size: 1.5rem;
+    padding-left: 1rem;
+    font-family: "Roboto mono", monospace;
+
+    transition: 0.2s ease-in-out;
+
+    transform: translateY(0);
+}
+
+#compare > .c-barContainer > input:focus{
+    border: 2px solid var(--sub-color);
+}
+
+#compare > .c-barContainer > input::placeholder{
+    color: var(--sub-color);
+}
+
+#compare > .c-barContainer > #search-button{
+    margin: auto;
+    margin-right: 2vw;
+    grid-row: 1/2;
+    grid-column: 6/15;
+
+    z-index: 10;
+
+    filter: invert(50%) sepia(12%) saturate(921%) hue-rotate(168deg) brightness(90%) contrast(92%);
+}
+
+/* #compareLeftSlide{
+
+} */
+
+#c-chartContainer{
+    width: 20vw;
+    height: 20vh;
+}
+
+#compareLeftSlide{
+    grid-column: 5;
+    grid-row: 12;
+    margin: auto;
+}
+
+#compareRightSlide{
+    grid-column: 6;
+    grid-row: 12;
+    margin: auto;
+}
+
+#c-dataContainer{
+    font-family: var(--font);
+    text-align: center;
+    grid-row: 2/6;
+    grid-column: 1/25;
+    overflow-y:scroll;
+}
+::-webkit-scrollbar {
+    display: none;
+  }
+
+#c-dataContainer table tr {
+    color: rgb(201, 195, 246);
+    /* background-color: #5f5f5f; */
+    border-bottom: 1px solid #dddddd;
+    font-size: 14px;
+    font-family: "Roboto mono", monospace;
+}
+#c-dataContainer table th {
+    color: #617b94;
+    background-color: var(--sub-alt-color);
+    border-bottom: 1px solid #617b94;
+    font-size: 13px;
+    position: sticky;
+    top: 0;
+}
+
+#c-qataContainer{
+    text-align: center;
+    grid-row: 6/12;
+    grid-column: 1/25;
+    overflow-y:scroll;
+}
+#c-qataContainer table{
+    width:100%;
+    overflow-y: scroll;
+    font-family: "Roboto mono", monospace;
+}
+#c-qataContainer table thead tr th{
+    height:auto;
+}
+#c-qataContainer table tr td:nth-child(n+3) {
+    width: 15%;
+}
+#c-qataContainer table tr td:nth-child(n+4) {
+    width: 1%;
+}
+#c-qataContainer table tr td:nth-child(n+9) {
+    width: 15%;
+}
+#c-qataContainer table thead tr th:last-of-type{
+    height:auto;
+    width:100%;
+}
+#c-qataContainer table tr {
+    color: rgb(201, 195, 246);
+    background-color: #5f5f5f;
+    border-bottom: 1px solid #dddddd;
+}
+#c-qataContainer table th {
+    color: #617b94;
+    background-color: var(--sub-alt-color);
+    border-bottom: 1px solid #617b94;
+    position: sticky;
+    top: 0;
+}
+#c-qataContainer table tr:nth-of-type(even) {
+    background-color: #504f4f;
+}
+
+#robotsCompared{
+    grid-row:12/13;
+    grid-column:7/10;
+    margin: auto;
+    font-family: "Roboto mono", monospace;
+}
+#compareRobots{
+    grid-row:12/13;
+    grid-column:10/13;
+    margin: auto;
+    font-family: "Roboto mono", monospace;
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow-y: scroll;
+}
+#compareRobots::-webkit-scrollbar {
+    display: none;
+  }
+#robotCurrData{
+    grid-row:12/13;
+    grid-column:13/16;
+    margin: auto;
+    font-family: "Roboto mono", monospace;
+}
+#compareCurrRobot{
+    grid-row:12/13;
+    grid-column:16/17;
+    margin: auto;
+    font-family: "Roboto mono", monospace;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+#compareRemoveRobot{
+    grid-row:12/13;
+    grid-column:17/20;
+    margin: auto;
+    font-family: "Roboto mono", monospace;
+    border-radius:5px;
+    background-color: #1b1f27;
+    border-color:#617b94;
+    color:#617b94;
+}
+#viewpage > .hide{
+    display: none;
+}
+
+/* Predict page */
+#predict {
+    font-family: "Roboto mono", monospace;
+}
+
+#predict > #alliances {
+    padding: 1vw;
+    font-size: 1.6rem;
+}
+
+#predict > #alliances > #blueAlliance > p, #predict > #alliances > #redAlliance > p {
+    margin: 0px;
+    border-collapse: separate; 
+}
+
+#predict > #alliances > #blueAlliance, #predict > #alliances > #redAlliance, #predict > #alliances > #predictSettings {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 4%;
+}
+
+#predict > #alliances > #predictSettings {
+    font-size: 1.4rem;
+}
+
+#predict > #alliances > #blueAlliance > input, #predict > #alliances > #redAlliance > input {
+    width: 20vw;
+    outline: none;
+    background-color: var(--sub-alt-color);
+    border-radius: 0.75rem;
+    border: 2px solid var(--sub-alt-color);
+    color: var(--text-color);
+    font-size: 1.3rem;
+    padding-left: 1rem;
+    font-family: "Roboto mono", monospace;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    margin-top: 1%;
+
+    transition: ease-in-out 0.2s all;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  /* -webkit-appearance: none;  */
+  margin: 0; 
+}
+#predict > #alliances > #blueAlliance > input:focus, #predict > #alliances > #redAlliance > input:focus{
+    border: 2px solid var(--sub-color);
+}
+
+#predict > #alliances > button {
+    font-family: "Roboto mono", monospace;
+    background-color: var(--sub-color);
+    color: white;
+    font-size: 1em;
+    padding: 10px 15%;
+    border: none;
+    border-radius: 10px;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+#predict > #alliances > button:hover {
+    background-color: #46596b;
+    cursor: pointer;
+}
+  
+#predict > #alliances > button:active {
+    transform: scale(0.95);
+    transition: transform 0.025s ease-out;
+}
+
+#predict > #results {
+    font-size: 1.6rem;
+    text-align: left;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding-left: 5px;
+    margin: 5px;
+}
+
+#predict > #calculatedTables {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+}
+
+#predict > #calculatedTables > #blueVals, #predict > #calculatedTables > #redVals, #predict > #calculatedTables > #blueDefPen, #predict > #calculatedTables > #redDefPen {
+    visibility: hidden;
+    padding: 10px;
+    padding-right: 14px;
+    margin: 20px;
+    background-color: #5f5f5f;
+    font-size: 1.75rem;
+    text-align: center;
+    border-radius: 10px;
+}
+#predict > #calculatedTables > #blueVals, #predict > #calculatedTables > #blueDefPen {
+    background-color: var(--b);
+}
+#predict > #calculatedTables > #redVals, #predict > #calculatedTables > #redDefPen {
+    background-color: var(--r);
+}
+
+#blueVals > table > thead{
+    height: 1.5rem;
+}
+
+th, td {
+  width: 100px;
+  overflow: hidden;
+}
+
+/* RANKING */
+
+#viewpage > #ranking thead tr {
+    position: sticky;
+    top: 0px;
+    background-color: var(--bg-color);
+    overflow: auto;
+}
+
+#viewpage > #ranking > #rank-container {
+    grid-row: 1/5;
+    grid-column: 1/5;
+}
+
+#viewpage > #ranking > #rank-container > #rankingModal table {
+    width:auto;
+    overflow:auto;
+}
+#viewpage > #ranking > #rank-container > #rankingModal table tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: var(--g-alt);
+    color: var(--text-color);
+}
+
+.modal-body {
+    padding: 20px 16px;
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    column-gap: 2rem;
+    grid-template-rows: auto;
+}
+
+#plot {
+    grid-column: 6 / 10;
+    width: 100%;
+    height:100%;
+}
+#chart {
+  grid-column: 2 / 6;
+  width:100%;
+  height:100%;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    -webkit-animation-name: fadeIn; /* Fade in the background */
+    -webkit-animation-duration: 0.2s;
+    animation-name: fadeIn;
+    animation-duration: 0.2s
+}
+
+/* Modal Content */
+.modal-content {
+    font-family: "Roboto mono", monospace;
+    position: fixed;
+    bottom: 0;
+    background-color: var(--bg-color);
+    width: 100%;
+    -webkit-animation-name: slideIn;
+    -webkit-animation-duration: 0.2s;
+    animation-name: slideIn;
+    animation-duration: 0.2s;
+}
+
+/* The Close Button */
+.close {
+color: var(--text-color);
+float: right;
+font-size: 28px;
+font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+color: #000;
+text-decoration: none;
+cursor: pointer;
+}
+
+/* Add Animation */
+@-webkit-keyframes slideIn {
+from {bottom: -300px; opacity: 0} 
+to {bottom: 0; opacity: 1}
+}
+
+@keyframes slideIn {
+from {bottom: -300px; opacity: 0}
+to {bottom: 0; opacity: 1}
+}
+
+@-webkit-keyframes fadeIn {
+from {opacity: 0} 
+to {opacity: 1}
+}
+
+@keyframes fadeIn {
+from {opacity: 0} 
+to {opacity: 1}
+}
+#viewpage > #ranking {
+    width: 100%;
+}
+
+#viewpage > #ranking table {
+    text-align: center;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.9rem;
+    width: 100%;
+}
+
+/* Statuses */
+#status {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+}
+
+#status-rescout-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#status-rescout-container > table {
+    height: 95%;
+    width: 95%;
+    background: #171a21;
+    font-size: 1.75rem;
+    text-align: center;
+    border-radius: 15px;
+    font-family: 'Roboto Mono', monospace;
+    overflow: scroll;
+}
+
+#status-rescout-container > table > thead > tr > th {
+    padding-top: 2%;
+}
+
+#status-rescout-container > table > tbody > tr {
+    height: 10px;
+}
+
+#status-rescout-container > table > tbody > tr > td {
+    height: 10px;
+}
+
+/* Settings */
+
+.weightInput{
+    width: 3.5vw;
+}
+
+#buttonDivs {
+    grid-row: 2/3;
+    grid-column: 4/5;
+}
+
+#wghtBtn, #resetBtn {
+    font-family: "Roboto mono", monospace;
+    background-color: var(--sub-color);
+    color: white;
+    font-size: 1em;
+    width: 200px;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    margin-top: 10px;
+    transition: background-color 0.2s ease-in-out;
+}
+  
+#wghtBtn:hover, #resetBtn:hover {
+    background-color: #46596b;
+}
+  
+#wghtBtn:active, #resetBtn:active {
+    transform: scale(0.95);
+    transition: transform 0.025s ease-out;
+}
+
+#settings-wght-container > table {
+    margin: 10px;
+    width: 100%;
+}
+
+#settings-wght-container > table > thead > tr > th {
+    font-family: "Roboto mono", monospace;
+    color: var(--text-color);
+}
+
+#settings-wght-container > table > tbody > tr > td > div > input {
+    width: 2.5vw;
+    outline: none;
+    background-color: var(--sub-alt-color);
+    border-radius: 0.75rem;
+    border: 2px solid var(--sub-alt-color);
+    color: var(--text-color);
+    font-size: 1rem;
+    padding-left: 1rem;
+    font-family: "Roboto mono", monospace;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    margin-top: 1%;
+}
+
+#summary > #summaryPlot {
+    width:100%;
+    grid-row: 1/10;
+    grid-column: 1/10;
+}
+
+@media (max-width: 1200px) {
+    #viewpage > #home table {
+        font-size: 0.7rem;
+    }
+    #table-container {
+        overflow: scroll;
+    }
+    #table-container table tr:nth-child(1) th:nth-child(n+3):nth-child(-n+4) {
+        display: none;
+    }
+    #table-container table tr:nth-child(n+1) td:nth-child(n+3):nth-child(-n+4) {
+        display: none;
+    }
+    #table-container table tr:nth-child(1) th:nth-child(n+24) {
+        display: none;
+    }
+    #table-container table tr:nth-child(n+1) td:nth-child(n+24) {
+        display: none;
+    }
+    #table-container table tr:nth-child(1) th:nth-child(1) {
+        position: sticky;
+        left: 0;
+        z-index: 2;
+        background: var(--bg-color);
+    }
+    #table-container table tr:nth-child(1) th:nth-child(2) {
+        position: sticky;
+        left: 35px;
+        z-index: 2;
+        background: var(--bg-color);
+        padding-right: 5px;
+    }
+    #table-container table tr:nth-child(n+1) td:nth-child(1) {
+        position: sticky;
+        left: 0;
+        z-index: 2;
+        background: var(--bg-color);
+    }
+    #table-container table tr:nth-child(n+1) td:nth-child(2) {
+        position: sticky;
+        left: 35px;
+        z-index: 2;
+        background: var(--bg-color);
+        padding-right: 5px;
+    }
+
+    #search > .barContainer > input {
+        font-size: 0.8rem;
+    }
+
+    #chart-container {
+        display: none;
+    }
+
+    #pitsData {
+        grid-row: 1;
+        font-size: 0.1rem;
+    }
+
+    #dataContainer {
+        grid-column: 1/11;
+    }
+
+    #qataContainer {
+        grid-column: 1/11;
+    }
+
+    #rank-container {
+        overflow: scroll;
+    }
+
+}

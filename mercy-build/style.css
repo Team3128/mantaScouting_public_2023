@@ -1,0 +1,443 @@
+:root{
+  --bg-color: #262a33;
+  --main-color: #43ffaf;
+  --caret-color: #43ffaf;
+  --sub-color: #526777;
+  --sub-alt-color: #1f232c;
+  --text-color: #e5f7ef;
+  --error-color: #ff5f5f;
+  --error-extra-color: #d22a2a;
+  --colorful-error-color: #ff5f5f;
+  --colorful-error-extra-color: #d22a2a;
+}
+
+body{
+  margin: 0px;
+  background-color: var(--bg-color);
+  height: 100vh;
+}
+
+.subpage{
+width: 100vw;
+height: 100vh;
+display: grid;
+grid-template-columns: repeat(10, 10vw);
+grid-template-rows: repeat(10, 10vh);
+
+z-index:1;
+position:absolute;
+
+overflow-y:scroll;
+overflow-x: hidden;
+color: var(--text-color);
+}
+
+#nav{
+background-color: rgba(1, 1, 1, 0.6);
+z-index: 10
+}
+
+#nav-bar{
+grid-row: 1/11;
+grid-column: 1/2;
+margin: 2vh;
+width: 75px;
+
+display:flex;
+flex-direction: column;
+
+z-index: 5;
+
+background-color: var(--sub-alt-color);
+border-radius: 0.5rem;
+
+transform: translateX(0) translateY(0);
+
+}
+
+#nav-bar > .nav-container{
+width: 75px;
+
+margin-top: 1vh;
+margin-bottom: 1vh;
+
+display:flex;
+flex-direction: column;
+
+transition: all ease-in-out 0.2s;
+}
+
+#nav-bar > .nav-container:hover{
+transform: translateX(-1px) translateY(-1px);
+
+}
+
+#nav-bar > .nav-container > img{
+width: 48px;
+
+margin-left: auto;
+margin-right: auto;
+
+filter: invert(50%) sepia(12%) saturate(921%) hue-rotate(168deg) brightness(90%) contrast(92%);
+
+user-select: none;
+}
+
+#nav-bar > .nav-container > img:hover{
+cursor: pointer;
+}
+
+#nav-bar > .nav-container > .nav-label{
+color: var(--sub-color);
+margin-left: auto;
+margin-right: auto;
+
+text-align: center;
+font-family: "Roboto Mono", monospace;
+font-size: 0.9rem;
+
+user-select: none;
+} 
+
+#nav-bar > .nav-container > .nav-label:hover{
+cursor: pointer;
+}
+
+#nav-bar > .last{
+position: absolute;
+
+bottom: 3vh;
+}
+
+.hideNavBar{
+  animation: hideNavBar;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+
+.showNavBar{
+  animation: hideNavBar;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+  animation-direction: reverse;
+}
+
+@keyframes hideNavBar {
+  0%{
+      transform: translateX(0px);
+  }
+  40%{
+      transform: translateX(1vw);
+  }
+  100%{
+      transform: translateX(-10vw);
+  }
+}
+
+#titleContainer{
+  display:flex;
+  flex-direction: column;
+  grid-column: 1/3;
+  grid-row: 1/3;
+  justify-content: center;
+  align-items: center;
+}
+
+#title{
+  font-size: 3rem;
+  font-family: "Poppins", sans-serif;
+  color: var(--text-color);
+}
+.colorC{
+  color: var(--main-color);
+  font-weight: bold;
+}
+#line{
+  width: 50%;
+  border-top: 1.5px var(--sub-color) solid;
+  margin: 1vh;
+}
+#sub{
+  font-size: 1rem;
+  font-family: "Poppins", sans-serif;
+  color: var(--text-color);
+}
+
+#input{
+  grid-column: 2/8;
+  grid-row: 3/9;
+  background-color: var(--sub-alt-color);
+  resize: none;
+  border: 2px solid var(--sub-color);
+  font-family: "Roboto Mono", monospace;
+  color: var(--text-color);
+  padding: 1vw;
+  border-radius: 1rem;
+  font-size: 1rem;
+  transition: all 0.3s ease-in-out;
+  
+}
+#input:focus{
+  outline: none;
+  border: 2px solid var(--main-color);
+}
+#button{
+  grid-column: 2/6;
+  grid-row: 9/10;
+  margin-top: 2vh;
+  margin-bottom: 1vh;
+
+  border: 2px solid var(--sub-color);
+  background-color: var(--sub-alt-color);
+  border-radius: 0.75rem;
+  color: var(--text-color);
+
+  font-size: 1.25rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+
+  transition: all 0.2s ease-in-out;
+}
+
+#button:hover{
+  cursor: pointer;
+  background-color: var(--text-color);
+  color: var(--sub-alt-color);
+  border-color: var(--text-color);
+  transform: translateX(-0.3vh) translateY(-0.3vh);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+#clear{
+  grid-column: 6/8;
+  grid-row: 9/10;
+  margin-top: 2vh;
+  margin-bottom: 1vh;
+  margin-left: 2vw;
+
+  border: 2px solid var(--sub-color);
+  background-color: var(--sub-alt-color);
+  border-radius: 5.75rem;
+  color: var(--error-color);
+
+  font-size: 1.25rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+
+  transition: all 0.2s ease-in-out;
+
+}
+
+#clear:hover {
+  animation: shake 0.52s cubic-bezier(.36,.07,.19,.97) both;
+  color: var(--sub-alt-color);
+  background-color: var(--error-color);
+  border: 2px solid var(--error-color);
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}  
+
+#status{
+  grid-column: 8/10;
+  grid-row: 3/9;
+  background-color: var(--sub-alt-color);
+  resize: none;
+  border: 2px solid var(--sub-color);
+  font-family: "Roboto Mono", monospace;
+  color: var(--text-color);
+  padding: 1vw;
+  border-radius: 1rem;
+  font-size: 0.75rem;
+  transition: all 0.3s ease-in-out;
+  overflow-y: scroll;
+}
+
+#download{
+  grid-column: 8/9;
+  grid-row: 9/10;
+  margin-top: 2vh;
+  margin-bottom: 1vh;
+
+  border: 2px solid var(--sub-color);
+  background-color: var(--sub-alt-color);
+  border-radius: 0.75rem;
+  color: var(--text-color);
+
+  font-size: 1.25rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+
+  transition: all 0.2s ease-in-out;
+}
+
+#download:hover{
+  cursor: pointer;
+  background-color: var(--text-color);
+  color: var(--sub-alt-color);
+  border-color: var(--text-color);
+  transform: translateX(-0.3vh) translateY(-0.3vh);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+#cleardown{
+grid-column: 9/10;
+grid-row: 9/10;
+margin-top: 2vh;
+margin-bottom: 1vh;
+
+border: 2px solid var(--sub-color);
+background-color: var(--sub-alt-color);
+border-radius: 0.75rem;
+color: var(--text-color);
+
+font-size: 1.25rem;
+font-family: "Poppins", sans-serif;
+font-weight: bold;
+
+transition: all 0.2s ease-in-out;
+}
+
+#cleardown:hover{
+cursor: pointer;
+background-color: var(--text-color);
+color: var(--sub-alt-color);
+border-color: var(--text-color);
+transform: translateX(-0.3vh) translateY(-0.3vh);
+box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+#internetStatus{
+  grid-column: 3/5;
+  grid-row: 2;
+  font-size: 1.25rem;
+  font-family: "Roboto Mono", monospace;
+  color: var(--text-color);
+}
+
+#internetStatusIMG{
+  grid-column: 4;
+  grid-row: 2;
+}
+
+img{
+  filter: invert(100%) sepia(12%) saturate(921%) hue-rotate(168deg) brightness(90%) contrast(92%);
+}
+
+::-webkit-scrollbar {
+  width: 20px;
+}
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #d6dee1;
+  border-radius: 20px;
+  border: 6px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #a8bbbf;
+}
+@media (max-width: 1200px){
+  #titleContainer{
+    display:none;
+  }
+  #input{
+    grid-column: 1/8;
+    grid-row: 1/10;
+    margin:0;
+    padding:0;
+    border-radius: 0;
+    font-size: 75%;
+  }
+  #status{
+    grid-column: 8/11;
+    grid-row: 1/10;
+    margin:0;
+    padding:0;
+    border-radius: 0;
+    font-size: 75%;
+  }
+  #download{
+    grid-column: 8/10;
+    grid-row: 10/11;
+    margin:0;
+    padding:0;
+    border-radius: 0;
+    font-size: 75%;
+  }
+  #cleardown{
+    grid-column: 10/11;
+    grid-row: 10/11;
+    margin:0;
+    padding:0;
+    border-radius: 0;
+    font-size: 75%;
+  }
+  #clear{
+    grid-column: 6/8;
+    grid-row: 10/10;
+    margin: 0;
+    padding:0;
+    border-radius: 0;
+    font-size: 75%;
+  }
+  #button{
+    grid-column: 1/6;
+    grid-row: 10/10;
+    margin:0;
+    padding:0;
+    border-radius: 0;
+    font-size: 75%;
+  }
+}
+
+#TBAtoggle{
+  grid-column: 2/6;
+  grid-row: 9/10;
+  margin-top: 2vh;
+  margin-bottom: 1vh;
+
+  border: 2px solid var(--sub-color);
+  background-color: var(--sub-alt-color);
+  border-radius: 0.75rem;
+  color: var(--text-color);
+
+  font-size: 1.25rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+
+  transition: all 0.2s ease-in-out;
+}
+
+#TBAtoggle:hover{
+  cursor: pointer;
+  background-color: var(--text-color);
+  color: var(--sub-alt-color);
+  border-color: var(--text-color);
+  transform: translateX(-0.3vh) translateY(-0.3vh);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+

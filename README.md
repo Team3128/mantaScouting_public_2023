@@ -18,5 +18,13 @@ If you're looking to use this system for yourself,
 2. Change `availPaths` variable in `Mercy/script.js` to the event keys that you are planning to use the database for (e.g 2023casd)
 3. Change TBA key in `api_url` variable in `Mercy/script.js` to your TBA key
 
+Web-hosted apps:
+1. https://osprey-host.vercel.app/
+2. https://mercy-host.vercel.app/
+3. https://nep2n-host.vercel.app/
+
 Scouting Systems Writeup
 https://docs.google.com/document/d/1ncJgYOuvw-jP3lUdvfEbWR4viPAjw0fkJia4bnxCOUg/edit?usp=sharing 
+
+Osprey User Manual
+https://docs.google.com/document/d/1nnusSLb2-aIXS8suVCjo5ODfzIJTaM9mqirKJhm6U10/edit?usp=sharing

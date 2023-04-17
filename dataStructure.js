@@ -85,16 +85,9 @@ export class DataStructure {
         this.pitscoutLabels = ['Timestamp','Team', 'Scouter', 'Scout Name', 'Drivetrain', 'Robot Weight', 'Number of Motors', 'Motor Type', 'Coding Language', 'Vision Capabilities', 'Vision', 'Auto', 'Auto Climb', 'Endgame Climb', 'Piece Type', 'Manipulator', 'Aluminum Assistance', 'Mech-Controls Issue?', 'Miscellaneous'];
         this.imageLabels = ['Timestamp', 'Team', 'Image of Robot'];
 
-        this.firebasePath = "Events/tbatestosterone/";
+        this.firebasePath = "EVENT_PATH_HERE";
         this.firebaseConfig = {
-            apiKey: "AIzaSyAO1aIe_fTZB6duj8YIRyYcLTINlcP196w",
-            authDomain: "escouting-7b4e0.firebaseapp.com",
-            databaseURL: "https://escouting-7b4e0-default-rtdb.firebaseio.com",
-            projectId: "escouting-7b4e0",
-            storageBucket: "escouting-7b4e0.appspot.com",
-            messagingSenderId: "377179821867",
-            appId: "1:377179821867:web:cedab35ab708c12986976e",
-            measurementId: "G-8VWYRF9QY6"
+            //insert your firebase API config here
         };
         this.app;
         this.database;

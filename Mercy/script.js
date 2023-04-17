@@ -11,7 +11,7 @@ let api_url;
 let toggleTBA = false;
 
 // Check if Firebase path exists in local storage
-let availPaths = ["2023casd","2023casdpractice", "2023hiho", "2023hihopractice"]
+let availPaths = ["ADD_PATHS_HERE"];
 let firebasePath = localStorage.getItem('firebasePath');
 if (firebasePath == "null") {
     let valid = true;
@@ -50,7 +50,7 @@ if (firebasePath == "null") {
     eventName = userInput;
     localStorage.setItem('firebasePath', userInput);
 }
-api_url = "https://www.thebluealliance.com/api/v3/event/" + eventName + "/matches?X-TBA-Auth-Key=OKrQwTVsNqPr3reh7BeFQSwI5b38D2ap3JTQLaxFZzp8qoqhcDpnWdCeLK8uKk7G";
+api_url = "https://www.thebluealliance.com/api/v3/event/" + eventName + "/matches?X-TBA-Auth-Key=TBA_AUTH_HERE";
 console.log("success")
 
 var netStatus;

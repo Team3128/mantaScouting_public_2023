@@ -141,7 +141,8 @@ function uploadData() {
       }
       let invalidQualitative = ""
       let validQualitative = true;
-      for(let j=4; j<25; j++){
+      for(let j=4; j<dataStructure.dataLabels.length; j++){
+        if(dataStructure.dataTypes[j] != "number") continue; // only check the number fields
         if(!/^\d+$/.test(data[j])){
           validQualitative = false;
           invalidQualitative+= "index " + (j+1) + ", with value " + data[j] + ", or " + dataStructure.dataLabels[j] + "<br>";
